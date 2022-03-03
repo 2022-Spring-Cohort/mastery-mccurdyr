@@ -19,4 +19,5 @@ public class HomeController {
         model.addAttribute("topics", topicRepo.findAll());
         return "home-template";
     }
+
 }
