@@ -4,14 +4,17 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title th:text="${topic.name}">Document</title>
+    <title th:text="${hashtags}">Document</title>
 
     <link rel="stylesheet" href="/css/style.css"/>
     <link rel="stylesheet" href="/css/layout.css"/>
 </head>
 
+
+
 <body>
 <div class="container">
+
     <header class="header">
         <h1 class="header__title">Surviving Coding Boot Camp</h1>
         <nav class="header__nav">
@@ -19,34 +22,24 @@
             <div class="header__nav-item"><a href="/hashtags" class="header__nav-link">Hashtags</a></div>
         </nav>
     </header>
+
     <main class="main-content">
         <section class="main-content__topic topic">
-            <h2 th:text="${topic.name}" class="topic__title main-content__title">
-                Topic
+            <h2 class="topic__title main-content__title">
+                Hashtags
             </h2>
             <nav class="main-content__nav posts__nav">
-                <div th:each="post: ${topic.posts}">
-                    <a th:text="${post.title}" th:href="'/posts/'+${post.id}" href="#"
+                <div th:each="hashtag: ${hashtags}">
+                    <a th:text="${hashtag.hashName}" th:href="'/hashtags/'+${hashtag.id}" href="#"
                        class="posts__nav-link"></a>
                 </div>
             </nav>
         </section>
-<!--form to submit posts-->
-        <div class="postSubmit">
-            <form th:action="'/posts/' + ${topic.id} + '/addnewpost'"
-                  method="POST">
-                        <textarea name="title" id="submitPostTitleArea" cols="20" rows="1"
-                                  placeholder="Title"></textarea>
-                <textarea name="author" id="submitPostNameArea" cols="20" rows="1"
-                          placeholder="Your name"></textarea>
-                <textarea name="content" id="submitPostTextArea" cols="20" rows="1"
-                          placeholder="Content"></textarea>
-                <input type="submit" name="SEND" id="submitPostInput">
-            </form>
-        </div>
-
     </main>
 </div>
 </body>
+
+
+
 
 </html>

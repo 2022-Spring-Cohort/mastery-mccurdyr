@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;
 
-public interface PostRepository extends CrudRepository<Post, Long> {
-    Optional<Post> findByTitleIgnoreCase(String title);
+public interface HashtagRepository extends CrudRepository<HashtagPojo, Long> {
 
+    Optional<HashtagPojo> findByHashName(String hashName);
 }
